@@ -1,33 +1,35 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>aNimaTe</title>
+  <title>moon veggie burger</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container mt-5 text-center">
+  <div class="container mt-2 text-center">
 
+    <!-- launch button -->
     <a href="#" class="btn btn-signup text-right" id="start">Send veggie burger to the moon</a>
 
     <div id ="animate">
       <script>
-        var btn = document.getElementById("start");
+        const btn = document.getElementById("start");
         btn.addEventListener(("click"), () => {
           myMove();
         })
 
         function myMove() {
-          var anim = document.getElementById("animate");
-          var xPos = 0;
-          var yPos = 0;
-          var xSize = 48;
-          var ySize = 48;
-          var id_pos = setInterval(frame_pos, 40);
+          const anim = document.getElementById("animate");
+          let xPos = 0;
+          let yPos = 0;
+          let xSize = 48;
+          let ySize = 48;
+          const id_pos = setInterval(frame_pos, 40);
           anim.style.visibility = "visible";
+          // moves frame
           function frame_pos() {
-            if (xPos == 800) {
+            if (xPos == 500) {
               clearInterval(id_pos);
             } else {
               xPos++;
@@ -36,7 +38,8 @@
               anim.style.left = yPos + 'px';
             }
           }
-          var id_size = setInterval(frame_size, 390);
+          // shrinks frame
+          const id_size = setInterval(frame_size, 390);
           function frame_size() {
             if (xSize == 0) {
               clearInterval(id_size);
