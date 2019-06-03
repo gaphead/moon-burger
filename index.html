@@ -2,15 +2,18 @@
 <head>
   <meta charset="UTF-8">
   <title>moon veggie burger</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container mt-2 text-center">
+  <div class="container mt-5 text-center">
 
-    <!-- launch button -->
-    <a href="#" class="btn btn-signup text-right" id="start">Send veggie burger to the moon</a>
+    <div class="btn btn-outline-secondary text-right mb-5" id="start">
+      <span>Send veggie burger to the moon</span>
+    </div>
 
     <div id ="animate">
       <script>
@@ -23,13 +26,13 @@
           const anim = document.getElementById("animate");
           let xPos = 0;
           let yPos = 0;
-          let xSize = 48;
-          let ySize = 48;
+          let xSize = 96;
+          let ySize = 96;
           const id_pos = setInterval(frame_pos, 40);
           anim.style.visibility = "visible";
           // moves frame
           function frame_pos() {
-            if (xPos == 500) {
+            if (xPos == 420) {
               clearInterval(id_pos);
             } else {
               xPos++;
@@ -39,7 +42,7 @@
             }
           }
           // shrinks frame
-          const id_size = setInterval(frame_size, 390);
+          const id_size = setInterval(frame_size, 175);
           function frame_size() {
             if (xSize == 0) {
               clearInterval(id_size);
