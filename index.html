@@ -3,10 +3,12 @@
   <meta charset="UTF-8">
   <title>moon veggie burger</title>
 
+  <!-- open graph -->
   <meta property="og:title" content="Veggie Moon Burger">
   <meta property="og:description" content="Send a veggie burger to the moon">
   <meta property="og:image" content="burger.png">
   <meta property="og:url" content="http://erkpndltn.com">
+  <meta property="og:type" content="website">
   <meta name="twitter:card" content="moon.jpg">
 
   <!-- generic icons -->
@@ -33,6 +35,7 @@
   <!—- Windows 8.1 + IE11 and above -—>
   <meta name="msapplication-config" content="browserconfig.xml"/>
 
+  <!-- css -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -41,41 +44,103 @@
 
   <div class="container mt-5 text-center">
 
-    <div class="btn btn-outline-secondary text-right mb-5" id="start">
+    <!-- start button -->
+    <div class="btn btn-outline-secondary text-right mb-5" id="btn-start">
       <span>Send veggie burger to the moon</span>
     </div>
 
+    <!-- debugging ranges -->
+    <div id="target">
+      <p>X</p>
+    </div>
+
+    <!-- animated div -->
     <div id ="animate">
       <script>
-        const btn = document.getElementById("start");
+        const btn = document.getElementById("btn-start");
         btn.addEventListener(("click"), () => {
           myMove();
         })
 
+        // main animation function
         function myMove() {
           const anim = document.getElementById("animate");
-          let xPos = 0;
-          let yPos = 0;
+          // returns browser width
+          function getWidth() {
+            return Math.max(
+              document.body.scrollWidth,
+              document.documentElement.scrollWidth,
+              document.body.offsetWidth,
+              document.documentElement.offsetWidth,
+              document.documentElement.clientWidth
+            );
+          }
+          // returns browser height
+          function getHeight() {
+            return Math.max(
+              document.body.scrollHeight,
+              document.documentElement.scrollHeight,
+              document.body.offsetHeight,
+              document.documentElement.offsetHeight,
+              document.documentElement.clientHeight
+            );
+          }
+          // randomize start position of animation relative to browser size
+          function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+          }
+          let xPos = getRandomInt(getWidth());
+          let yPos = getRandomInt(getHeight());
+          // start size of animation
           let xSize = 96;
           let ySize = 96;
-          const id_pos = setInterval(frame_pos, 40);
+          // interval for movement animation
+          const id_pos = setInterval(frame_pos, 5);
           anim.style.visibility = "visible";
-          // moves frame
+          // moves animation
           function frame_pos() {
-            if (xPos == 420) {
-              clearInterval(id_pos);
-            } else {
-              xPos++;
-              yPos++;
-              anim.style.top = xPos + 'px';
-              anim.style.left = yPos + 'px';
-            }
+            var xOverMed = Math.sign((getWidth() / 2) - xPos) == -1
+            var xUnderMed = Math.sign((getWidth() / 2) - xPos) == 1
+            var yUnderMed = Math.sign((getHeight() / 2) - yPos) == 1
+            var yOverMed = Math.sign((getHeight() / 2) - yPos) == -1
+            // if (xPos == getWidth() / 2)  {
+            //   // ends movement of animation
+            //   clearInterval(id_pos);
+            // } else {
+              // if burger starting point is in first quadrant
+              if (xOverMed && yUnderMed) {
+                xPos--;
+                yPos++;
+                anim.style.top = xPos + 'px';
+                anim.style.left = yPos + 'px';
+              // if burger starting point is in second quadrant
+              } else if (xUnderMed && yUnderMed) {
+                xPos++;
+                yPos++;
+                anim.style.top = xPos + 'px';
+                anim.style.left = yPos + 'px';
+              // if burger starting point is in third quadrant
+              } else if (xUnderMed && yOverMed) {
+                xPos++;
+                yPos--;
+                anim.style.top = xPos + 'px';
+                anim.style.left = yPos + 'px';
+              // if burger starting point is in fourth quadrant
+              } else if (xOverMed && yOverMed) {
+                xPos--;
+                yPos--;
+                anim.style.top = xPos + 'px';
+                anim.style.left = yPos + 'px';
+              }
+            // }
           }
           // shrinks frame
-          const id_size = setInterval(frame_size, 175);
+          const id_size = setInterval(frame_size, 5);
           function frame_size() {
             if (xSize == 0) {
+              // ends shinking of animation
               clearInterval(id_size);
+              clearInterval(id_pos);
             } else {
               xSize--;
               ySize--;

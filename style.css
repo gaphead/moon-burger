@@ -7,18 +7,25 @@
   height: 100%;
   max-width: 100%;
   position: relative;
+}
 
+#target {
+  width: 50%;
+  height: 50%;
+  border: 1px solid red;
+  position: absolute;
+  top: 30%;
+  left: 25%;
 }
 
 #animate {
-  /*border-radius: 50%;*/
   position: absolute;
   background-image: url('burger.png');
   background-size: cover;
   visibility: hidden;
 }
 
-#start {
+#btn-start {
   position: absolute;
   right: 40px;
   border: solid 1px rgba(220, 220, 220, 0.8);
