@@ -1,5 +1,15 @@
 <html>
 <head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141825717-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-141825717-1');
+  </script>
+
   <meta charset="UTF-8">
   <title>moon veggie burger</title>
 
@@ -33,10 +43,18 @@
   <!—- Windows 8.1 + IE11 and above -—>
   <meta name="msapplication-config" content="browserconfig.xml"/>
 
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/c87fad904c.js"></script>
+
+  <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <div class="container mt-5 text-center">
@@ -60,6 +78,7 @@
           let ySize = 96;
           const id_pos = setInterval(frame_pos, 40);
           anim.style.visibility = "visible";
+
           // moves frame
           function frame_pos() {
             if (xPos == 420) {
@@ -71,6 +90,7 @@
               anim.style.left = yPos + 'px';
             }
           }
+
           // shrinks frame
           const id_size = setInterval(frame_size, 175);
           function frame_size() {
@@ -85,7 +105,14 @@
           }
         }
       </script>
+    <!-- end #animate -->
     </div>
+
+  <!-- end .container  -->
+  </div>
+
+  <div id="links">
+    <a href="https://github.com/gaphead" id="ghub"><i class="fab fa-github"></i></a>
   </div>
 
 </body>
