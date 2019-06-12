@@ -7,13 +7,10 @@
   height: 100%;
   max-width: 100%;
   position: relative;
-
 }
 
 #animate {
-  /*border-radius: 50%;*/
   position: absolute;
-  background-image: url('burger.png');
   background-size: cover;
   visibility: hidden;
 }
@@ -42,8 +39,6 @@
 #ghub:hover {
   color: #401f38;
 }
-
-
 
 body {
   text-decoration: none;

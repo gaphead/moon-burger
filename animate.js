@@ -1,48 +1,55 @@
-// import require from 'require.js'
-
-// 'use strict';
-// const fs = require('fs');
-
-// let rawdata = fs.readFileSync("count.json");
-// let data = JSON.parse(rawdata);
-// console.log(data);
-
-
+const anim = document.getElementById("animate");
 const btn = document.getElementById("start");
-btn.addEventListener(("click"), () => {
-  btn.style.visibility = "hidden";
 
-  // makes button visible again 17 seconds after press
-  setTimeout(function(){ btn.style.visibility = "visible"; }, 17000);
-  myMove();
-})
 
-function myMove() {
-  const anim = document.getElementById("animate");
+function animate() {
   let xPos = 0;
   let yPos = 0;
-  let xSize = 96;
-  let ySize = 96;
-  const id_pos = setInterval(frame_pos, 40);
+  anim.style.backgroundImage = "url('burger.png')";
+
+  const mv_interval = setInterval(move, 40);
+  xSize = 96;
+  ySize = 96;
   anim.style.visibility = "visible";
 
   // moves frame
-  function frame_pos() {
-    if (xPos == 420) {
-      clearInterval(id_pos);
-    } else {
-      xPos++;
-      yPos++;
-      anim.style.top = xPos + 'px';
-      anim.style.left = yPos + 'px';
-    }
+  function move() {
+    xPos++;
+    yPos++;
+    anim.style.top = xPos + 'px';
+    anim.style.left = yPos + 'px';
   }
 
   // shrinks frame
-  const id_size = setInterval(frame_size, 175);
-  function frame_size() {
+  const size_interval = setInterval(shrink, 175);
+  function shrink() {
     if (xSize == 0) {
-      clearInterval(id_size);
+      clearInterval(mv_interval);
+      clearInterval(size_interval);
+      anim.style.backgroundImage = "url('smoke.gif')";
+      xSize = 3
+      ySize = 4
+      anim.style.width = xSize + 'px';
+      anim.style.height = ySize + 'px';
+
+      const smoke_interval = setInterval(grow, 225);
+      function grow() {
+        if (xSize == 15) {
+          clearInterval(smoke_interval);
+          btn.style.visibility = "visible"
+        } else {
+          xSize++;
+          ySize++
+          anim.style.width = xSize + 'px';
+          anim.style.height = ySize + 'px';
+
+          xPos--;
+          yPos--;
+          anim.style.top = xPos + 'px';
+          anim.style.left = yPos + 'px';
+        }
+      }
+
     } else {
       xSize--;
       ySize--;
@@ -50,4 +57,19 @@ function myMove() {
       anim.style.height = ySize + 'px';
     }
   }
+
 }
+
+btn.addEventListener(("click"), () => {
+  anim.style.visibility = "hidden";
+  btn.style.visibility = "hidden";
+  let xSize = 0;
+  let ySize = 0;
+  anim.style.width = xSize + 'px';
+  anim.style.height = ySize + 'px';
+
+  // runs animation
+  animate();
+})
+
+
