@@ -67,6 +67,10 @@
       <script>
         const btn = document.getElementById("start");
         btn.addEventListener(("click"), () => {
+          btn.style.visibility = "hidden";
+
+          // makes button visible again 17 seconds after press
+          setTimeout(function(){ btn.style.visibility = "visible"; }, 17000);
           myMove();
         })
 
