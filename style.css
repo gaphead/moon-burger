@@ -40,9 +40,17 @@
   color: #401f38;
 }
 
+#i-comment {
+  color: white;
+  font-weight: 100;
+  font-size: 18px;
+}
+
 body {
   text-decoration: none;
   background-color: black;
+  max-width: 1200px;
+  margin: auto;
 }
 
 span {
