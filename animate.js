@@ -63,10 +63,6 @@ function animate() {
 btn.addEventListener(("click"), () => {
   anim.style.visibility = "hidden";
   btn.style.visibility = "hidden";
-  let xSize = 0;
-  let ySize = 0;
-  anim.style.width = xSize + 'px';
-  anim.style.height = ySize + 'px';
 
   // runs animation
   animate();
