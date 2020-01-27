@@ -16,7 +16,7 @@ span {
 
 /* layout */
 
-.container {
+div.container {
   margin: 0;
   background-image: url('moon.jpg');
   background-size: cover;
@@ -59,9 +59,17 @@ a#ghub:hover {
 }
 
 
-/*#i-comment {
-  color: white;
-  font-weight: 100;
-  font-size: 18px;
-}*/
+@media screen and (max-width: 1199px) {
+  div.container {
+    max-width: 100vw;
+    margin: auto;
+  }
+}
 
+
+@media screen and (max-width: 1060px) {
+  div.container {
+    /*change background-image to a smaller version of moon.jpg*/
+    /*(separate file)*/
+  }
+}
