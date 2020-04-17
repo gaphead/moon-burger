@@ -24,16 +24,15 @@ span {
 
 /* layout */
 div.container {
-  margin: 40px auto 0 auto;
+  margin: 0 auto;
+  margin-top: 40px;
   padding: 0;
   background-image: url('moon.jpg');
   background-size: contain;
-  background-position: center bottom;
+  background-position: center top;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 div#animate {
