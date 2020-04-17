@@ -1,10 +1,19 @@
 /* global */
+html, body {
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: black;
+}
 
 body {
+  margin: 0 auto;
+  padding: 0;
   text-decoration: none;
   background-color: black;
-  max-width: 1200px;
-  margin: auto;
+  position: relative;
 }
 
 span {
@@ -15,16 +24,17 @@ span {
 
 
 /* layout */
-
 div.container {
-  margin: 0;
+  margin: 40px auto 0 auto;
+  padding: 0;
   background-image: url('moon.jpg');
-  background-size: cover;
-  background-position: center top;
+  background-size: contain;
+  background-position: center bottom;
   background-repeat: no-repeat;
   height: 100%;
-  max-width: 100%;
+  width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 div#animate {
@@ -51,25 +61,22 @@ a#ghub {
   bottom: 80px;
   right: 40px;
   font-size: 20px;
-  color: white;
-}
-
-a#ghub:hover {
   color: #401f38;
 }
 
+a#ghub:hover {
+  color: white;
+}
 
+/* media queries */
 @media screen and (max-width: 1199px) {
   div.container {
     max-width: 100vw;
-    margin: auto;
   }
 }
 
-
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 1000px) {
   div.container {
-    /*change background-image to a smaller version of moon.jpg*/
-    /*(separate file)*/
+    background-size: cover;
   }
 }
