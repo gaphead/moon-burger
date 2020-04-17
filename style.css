@@ -2,7 +2,6 @@
 html, body {
   margin: 0 auto;
   padding: 0;
-  height: 100%;
   width: 100%;
   overflow: hidden;
   background-color: black;
@@ -61,7 +60,7 @@ a#ghub {
   bottom: 80px;
   right: 40px;
   font-size: 20px;
-  color: #401f38;
+  color: #9d9b99;
 }
 
 a#ghub:hover {
