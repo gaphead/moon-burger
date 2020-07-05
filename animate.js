@@ -1,6 +1,9 @@
 const anim = document.getElementById("animate");
 const btn = document.getElementById("start");
 
+// function show_button() {
+//   btn.style.visibility = "visible";
+//  }
 
 function animate() {
   let xPos = 0;
@@ -61,8 +64,17 @@ function animate() {
 }
 
 btn.addEventListener(("click"), () => {
+  // var audio = new Audio('creekside.mp3');
+  // audio.play();
+
+  // set interval for audio.duration seconds * 1000 for ms, then make the button visible 
+  // var ms = audio.duration * 1000;
+  // const button_visibility = setTimeout(show_button, ms);
+
   anim.style.visibility = "hidden";
   btn.style.visibility = "hidden";
+
+
 
   // runs animation
   animate();
